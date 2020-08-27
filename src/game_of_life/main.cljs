@@ -162,28 +162,16 @@
 
 
 (defn render
-  "Mount the application's ui into <div id='app'/>"
   []
   (reagent.dom/render [ui] (js/document.getElementById "app")))
 
 
 (defn generate-and-install-styles
-  "Generate css styles on the fly and install it.
-
-  Note: This is only additative and replacing, like Clojure.
-  It can't remove styles on the fly this way. (Reloading the
-  page will reset all styles though, but you'll also loose
-  application state)"
   []
   (goog.style/installStyles (styles/generate-css)))
 
 
 (defn ^:after-load clear-cache-and-render!
-  "Figwheel hook used to re-generate the css and the ui.
-
-  The `:after-load` metadata causes this function to be called
-  after figwheel hot-reloads code. We force a UI update by clearing
-  the Reframe subscription cache."
   []
   (rf/clear-subscription-cache!)
   (generate-and-install-styles)
@@ -191,9 +179,6 @@
 
 
 (defn run
-  "The run function to start up the system and send the first re-frame event.
-  Note: The style generation should move to somewhere else in production mode
-  (to a build step probably)."
   []
   (rf/dispatch-sync [:initialize])
   (generate-and-install-styles)
