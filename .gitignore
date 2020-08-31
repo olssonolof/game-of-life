@@ -1,2 +1,5 @@
 /target/
 .cpcache/
+
+
+!target/public/cljs-out/main.js
