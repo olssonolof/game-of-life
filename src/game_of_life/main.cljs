@@ -91,7 +91,11 @@
    [hyperlink
     :label "What is this??"
     :on-click #(js/window.open  "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life")
-    :tooltip "Show me what this is!"]]])
+    :tooltip "Show me what this is!"]
+   [hyperlink
+    :label "Source code"
+    :on-click #(js/window.open  "https://github.com/olssonolof/game-of-life")
+    :tooltip "This is cool, show me how it's done!"]]])
 
 
 (defn content []
