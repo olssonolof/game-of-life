@@ -5,7 +5,7 @@
     [game-of-life.components.game-board :refer [draw-board]]
     [game-of-life.style :as styles]
     [goog.style]
-    [re-com.box :refer [box h-box v-box]]
+    [re-com.box :refer [box v-box]]
     [re-com.buttons :refer [button]]
     [re-com.core :refer [label gap slider title]]
     [re-frame.core :as rf]
@@ -135,16 +135,7 @@
                         (rf/dispatch [:run-game nil @speed-val]))]
 
           [gap :size "20px"]
-          [button
-           :label "TEST"
-           :class "btn btn-primary"
-           :on-click (fn[e] (rf/dispatch [:change-state-all]))]
-          [gap :size "20px"]
-          [draw-board coords #(rf/dispatch[:change-alive-state %])]
-
-          #_(when running
-              (run-game))]]))))
-
+          [draw-board coords #(rf/dispatch[:change-alive-state %])]]]))))
 
 
 (defn ui
@@ -156,9 +147,6 @@
       :child [hello]]
      [box
        :child [content]]]]])
-
-
-
 
 
 (defn render
@@ -183,5 +171,6 @@
   (rf/dispatch-sync [:initialize])
   (generate-and-install-styles)
   (render))
+
 
 (defonce init-block (run))
