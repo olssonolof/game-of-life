@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Compiling..."
+
+clj -m figwheel.main -bo prod
