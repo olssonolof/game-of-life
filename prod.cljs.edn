@@ -1,0 +1,3 @@
+{:main game-of-life.main
+ :optimizations :advanced
+ :output-to "docs/cljs-out/prod-main.js"}
