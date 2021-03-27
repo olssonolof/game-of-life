@@ -7,7 +7,7 @@
     [goog.style]
     [re-com.box :refer [box v-box]]
     [re-com.buttons :refer [button]]
-    [re-com.core :refer [label gap slider title]]
+    [re-com.core :refer [hyperlink label gap slider title]]
     [re-frame.core :as rf]
     [reagent.core :as reagent]))
 
@@ -84,7 +84,14 @@
 
 (defn hello
  []
- [:h1 "Game of life"])
+ [v-box
+  :class "top-label"
+  :children
+  [[:h1 "Game of life"]
+   [hyperlink
+    :label "What is this??"
+    :on-click #(js/window.open  "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life")
+    :tooltip "Show me what this is!"]]])
 
 
 (defn content []

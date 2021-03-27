@@ -7,6 +7,8 @@
     [:h1 {:background :white}]
     [:button {:margin :10px}]
 
+    [:.top-label {:margin-left :10px}]
+
     [:.rectangle-alive
      {:width :20px
       :height :20px
